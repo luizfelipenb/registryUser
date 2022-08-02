@@ -13,4 +13,13 @@ public enum TipoContato {
     }
 
     public String getDescricao() { return  descricao;};
+
+    public static TipoContato fromString(String descricao) {
+        for (TipoContato type : TipoContato.values()) {
+            if (type.descricao.equalsIgnoreCase(descricao)) {
+                return type;
+            }
+        }
+        return null;
+    }
 }

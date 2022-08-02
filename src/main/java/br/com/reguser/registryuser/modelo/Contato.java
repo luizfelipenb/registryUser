@@ -1,21 +1,23 @@
 package br.com.reguser.registryuser.modelo;
 
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+
+
+import javax.persistence.*;
 
 @Entity
 public class Contato {
 
     @Id
     private Long id;
-    private String  valor;
-    private TipoContato tipo_contato;
 
-    @ManyToOne
-    @JoinColumn(name= "id", nullable = true)
-    private User pessoa;
+    @Column(name = "VALOR")
+    private String  valor;
+
+    @Column(name = "TIPO_CONTATO")
+    private String tipo_contato;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="PESSOA_ID" ,nullable = true)
+    private Pessoa pessoa;
 
 }
